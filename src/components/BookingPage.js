@@ -40,7 +40,7 @@ class BookingPage extends React.Component {
       `
     };
 
-    fetch("http://localhost:8081/graphql", {
+    fetch("/graphql", {
       method: "POST",
       body: JSON.stringify(requestBody),
       headers: {
@@ -82,7 +82,7 @@ class BookingPage extends React.Component {
       }
     };
 
-    fetch("http://localhost:8081/graphql", {
+    fetch("/graphql", {
       method: "POST",
       body: JSON.stringify(requestBody),
       headers: {
