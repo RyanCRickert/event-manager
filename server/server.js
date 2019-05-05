@@ -8,6 +8,7 @@ const graphqlResolvers = require("../src/graphql/resolvers/index");
 const isAuth = require("../src/middleware/is-auth")
 
 const app = express();
+const port = process.env.PORT || 8081;
 
 app.use(bodyParser.json());
 
@@ -31,7 +32,7 @@ app.use("/graphql", graphqlHttp({
 
 mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@booking-app-ygssb.mongodb.net/${process.env.MONGO_DB}?retryWrites=true`, { useNewUrlParser: true })
   .then(
-    app.listen(8081)
+    app.listen(port)
   ).catch(err => {
     console.log(err);
   }
