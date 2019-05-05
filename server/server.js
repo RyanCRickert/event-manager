@@ -9,6 +9,7 @@ const isAuth = require("../src/middleware/is-auth")
 
 const app = express();
 const port = process.env.PORT || 8081;
+const publicPath = path.join(__dirname, "..", "public");
 
 app.use(bodyParser.json());
 
@@ -23,6 +24,10 @@ app.use((req, res, next) => {
 });
 
 app.use(isAuth);
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(publicPath, "index.html"));
+});
 
 app.use("/graphql", graphqlHttp({
   schema: graphqlSchema,
