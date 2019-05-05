@@ -1,0 +1,45 @@
+.backdrop {
+  background: rgba($color: black, $alpha: 0.75);
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 99;
+}
+
+.modal {
+  background: white;
+  box-shadow: 0 2px 8px rgba($color: #000000, $alpha: 0.26);
+  left: 5%;
+  position: fixed;
+  top: 20vh;
+  width: 90%;
+  z-index: 100;
+
+  h1 {
+    font-size: 1.25rem;
+    margin: 0;
+  }
+
+  @media (min-width: 768px) {
+    left: calc((100% - 30rem) / 2);
+    width: 30rem;
+  }
+}
+
+.modal__actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem;
+}
+
+.modal__content {
+  padding: 1rem;
+}
+
+.modal__header {
+  background: $light-blue;
+  color: $off-white;
+  padding: 1rem;
+}

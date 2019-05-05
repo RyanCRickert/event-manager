@@ -1,0 +1,54 @@
+.navigation {
+  align-items: center;
+  background: $light-blue;
+  color: $off-white;
+  display: flex;
+  font-size: 1.5rem;
+  height: 3.5rem;
+  justify-content: space-between;
+  left: 0;
+  padding: 0 1rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.navigation__logo h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.navigation__items {
+  margin-left: 1.5rem;
+  margin-right: 5rem;
+
+  ul {
+    align-items: center;
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    margin: 0 1rem;
+  }
+
+  a, button {
+    background: $dark-blue;
+    border: none;
+    border-radius: 10px;
+    color: $off-white;
+    cursor: pointer;
+    font: inherit;
+    font-size: 1.25rem;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    margin: 0;
+  }
+  
+  a:hover, a:active, .active, button:hover, button:active {
+    background: $off-white;
+    color: $dark-blue;
+  }
+}

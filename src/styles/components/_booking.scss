@@ -1,0 +1,23 @@
+.booking-control {
+  text-align: center;
+  padding: 0.5rem;
+
+  button {
+    font: inherit;
+    background: transparent;
+    border: none;
+    color: black;
+    cursor: pointer;
+    padding: 0.25rem 3rem;
+    user-select: none;
+  }
+
+  button.active {
+    border-bottom: 2px solid $light-blue;
+    color: $light-blue;
+  }
+
+  button:focus {
+    outline: none;
+  }
+}
