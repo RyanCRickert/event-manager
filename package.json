@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "start": "node server/server.js",
+    "heroku-postbuild": "webpack",
     "build": "webpack --mode production",
     "dev-server": "webpack-dev-server",
     "server": "nodemon server/server.js",
