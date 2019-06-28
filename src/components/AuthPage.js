@@ -9,7 +9,8 @@ export class AuthPage extends React.Component {
     super(props);
 
     this.state = {
-      isLoggedIn: true
+      isLoggedIn: true,
+      error: undefined
     }
 
     this.emailEl = React.createRef();
@@ -59,18 +60,18 @@ export class AuthPage extends React.Component {
         return;
       }
 
-      fetch("/graphql", {
+      fetch("http://localhost:8081/graphql", {
         method: "POST",
         body: JSON.stringify(requestBody),
         headers: {
           "Content-Type": "application/json"
         }
       }).then(res => {
-        if(res.status !== 200 && res.status !== 201) {
-          throw new Error("Failed!");
-        }
         return res.json();
       }).then(resData => {
+        if(resData.errors) {
+          throw new Error(resData.errors[0].message)
+        }
         if(resData.data.login.token) {
           this.props.setToken(resData.data.login.token);
           this.props.setUserName(resData.data.login.userId)
@@ -100,7 +101,7 @@ export class AuthPage extends React.Component {
           <input type="password" id="password" ref={this.passwordEl}></input>
         </div>
         <div className="form-actions">
-          <button type="submit">{this.state.isLoggedIn? "Login" : "Signup"}</button>
+          <button type="submit">{this.state.isLoggedIn ? "Login" : "Signup"}</button>
           <button type="button" onClick={this.switchModeHandler}>Switch to {this.state.isLoggedIn ? "Signup" : "Login"}</button>
         </div>
       </form>

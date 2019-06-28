@@ -28,9 +28,9 @@ app.use((req, res, next) => {
 
 app.use(isAuth);
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(publicPath, "index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(publicPath, "index.html"));
+// });
 
 app.use("/graphql", graphqlHttp({
   schema: graphqlSchema,
